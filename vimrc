@@ -27,6 +27,9 @@ set ruler
 " enable xterm mouse support
 set mouse=a
 
+" show line numbers relative to the line you're on for easy jumps
+set relativenumber
+
 " show a wicked status line
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{fugitive#statusline()}\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 set laststatus=2
