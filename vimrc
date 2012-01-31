@@ -27,9 +27,6 @@ set ruler
 " enable xterm mouse support
 set mouse=a
 
-" enable git plugin
-source ~/.vim/fugitive.vim
-
 " show a wicked status line
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{fugitive#statusline()}\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 set laststatus=2
@@ -56,7 +53,6 @@ set wildmode=longest:full
 "set shell=bash\ --login
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
-source ~/.vim/supertab.vim
 
 " tab widths
 set tabstop=4
@@ -84,30 +80,12 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-"source ~/.vim/pydoc.vim
-source ~/.vim/unimpaired.vim
-
-" 1000 undos with F5 for an undo tree browser
+" 1000 undos. good for gundo especially!
 set undolevels=1000
-source ~/.vim/gundo.vim
-nnoremap <F5> :GundoToggle<CR>
 
 " highlight all characters after 79th column as a warning msg
 "autocmd BufNewFile,BufRead *.py,*.rst match warningmsg /\%>79v.\+/
 autocmd BufNewFile,BufRead *.jinja2,*.jinja2js set filetype=htmljinja
-
-" disable arrow keys
-"inoremap  <Up>     <NOP>
-"inoremap  <Down>   <NOP>
-"inoremap  <Left>   <NOP>
-"inoremap  <Right>  <NOP>
-"noremap   <Up>     <NOP>
-"noremap   <Down>   <NOP>
-"noremap   <Left>   <NOP>
-"noremap   <Right>  <NOP>
-
-" Automatically reload unchanged files when they change outside of vim
-"set autoread
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -128,16 +106,29 @@ nnoremap tn :tabnext<cr>
 nnoremap tp :tabprev<cr>
 nnoremap td :tabnew %:p:h<cr>
 
+" Open the directory listing for the current file in the current tab
+nnoremap tc :e %:p:h<cr>
+
+" Disable arrow keys
+"inoremap  <Up>     <NOP>
+"inoremap  <Down>   <NOP>
+"inoremap  <Left>   <NOP>
+"inoremap  <Right>  <NOP>
+"noremap   <Up>     <NOP>
+"noremap   <Down>   <NOP>
+"noremap   <Left>   <NOP>
+"noremap   <Right>  <NOP>
+"
 " Easy buffer navigation
 noremap <C-h>  <C-w>h
 noremap <C-j>  <C-w>j
 noremap <C-k>  <C-w>k
 noremap <C-l>  <C-w>l
 " Disable the built-in navigation to kill the habit
-noremap <C-w>h  :echo "NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!!"<cr>
-noremap <C-w>j  :echo "NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!!"<cr>
-noremap <C-w>k  :echo "NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!!"<cr>
-noremap <C-w>l  :echo "NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!! NO!!!!!!!!!!!!!!!!!!"<cr>
+noremap <C-w>h  :echo "NO STUPID!!! Use the shortcut"<cr>
+noremap <C-w>j  :echo "NO STUPID!!! Use the shortcut"<cr>
+noremap <C-w>k  :echo "NO STUPID!!! Use the shortcut"<cr>
+noremap <C-w>l  :echo "NO STUPID!!! Use the shortcut"<cr>
 
 " Easy window splitting
 nnoremap ts :vsplit<cr>
@@ -145,10 +136,6 @@ nnoremap th :split<cr>
 
 " Disable the damn manual key
 nnoremap K <nop>
-
-map <leader><C-V> "+gP
-cmap <leader><C-V> <C-R>+
-vnoremap <leader><C-C> "+y
 
 " Strip docstrings and linebreaks from a sqlalchemy Table definition
 vnoremap <leader>sd :s/, doc=\_.\{-}""")/)/g<cr>gv!grep .<cr>
@@ -171,13 +158,13 @@ vnoremap # "py?<c-r>p<cr>
 " Automatically open the quickfix window when using :Ggrep
 autocmd QuickFixCmdPost *grep* cwindow
 
-" Open the directory listing for the current file in the current tab
-nnoremap tc :e %:p:h<cr>
-
 call pathogen#infect()
 
-" Navigate diffs when opened by my gitcfo shell alias:
+nnoremap <F5> :GundoToggle<CR>
+
+" Navigate diffs when opened by my gitcfo shell alias {{{
 "     function gitcfo() { CFO_BASE=$1 vim -c "Gdiff $1" `git show --pretty="format:" --name-only $1..$2 | grep . | uniq`; }
+" (Still buggy but sometimes useful)
 function! NavigateDiffs(direction)
 	execute ":" . a:direction
 	try
@@ -188,6 +175,7 @@ function! NavigateDiffs(direction)
 endfunction
 nnoremap [f <C-W>l<C-W><C-O>:call NavigateDiffs('previous')<cr>
 nnoremap ]f <C-W>l<C-W><C-O>:call NavigateDiffs('next')<cr>
+" }}}
 
 iabbrev foriin for (var i = 0, x; x = y[i]; ++i) {
 
