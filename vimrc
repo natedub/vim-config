@@ -174,7 +174,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " Open the directory listing for the current file in the current tab
 nnoremap tc :e %:p:h<cr>
 
-
+call pathogen#infect()
 
 " Navigate diffs when opened by my gitcfo shell alias:
 "     function gitcfo() { CFO_BASE=$1 vim -c "Gdiff $1" `git show --pretty="format:" --name-only $1..$2 | grep . | uniq`; }
