@@ -10,3 +10,12 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/camel-case-motion"]
+	path = vim/bundle/camel-case-motion
+	url = https://github.com/bkad/CamelCaseMotion.git
+[submodule "vim/bundle/arg-text-obj"]
+	path = vim/bundle/arg-text-obj
+	url = https://github.com/vim-scripts/argtextobj.vim.git
+[submodule "vim/bundle/indent-obj"]
+	path = vim/bundle/indent-obj
+	url = https://github.com/michaeljsmith/vim-indent-object.git
