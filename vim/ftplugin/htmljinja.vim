@@ -1,1 +1,1 @@
-source /Users/nathan/.vim/ftplugin/html.vim
+source $HOME/.vim/ftplugin/html.vim
