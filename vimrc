@@ -127,11 +127,6 @@ noremap <C-h>  <C-w>h
 noremap <C-j>  <C-w>j
 noremap <C-k>  <C-w>k
 noremap <C-l>  <C-w>l
-" Disable the built-in navigation to kill the habit
-noremap <C-w>h  :echo "NO STUPID!!! Use the shortcut"<cr>
-noremap <C-w>j  :echo "NO STUPID!!! Use the shortcut"<cr>
-noremap <C-w>k  :echo "NO STUPID!!! Use the shortcut"<cr>
-noremap <C-w>l  :echo "NO STUPID!!! Use the shortcut"<cr>
 
 " Easy window splitting
 nnoremap ts :vsplit<cr>
