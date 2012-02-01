@@ -156,6 +156,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 call pathogen#infect()
 
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <F6> :TagbarToggle<CR>
 
 " Navigate diffs when opened by my gitcfo shell alias {{{
 "     function gitcfo() { CFO_BASE=$1 vim -c "Gdiff $1" `git show --pretty="format:" --name-only $1..$2 | grep . | uniq`; }

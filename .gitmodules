@@ -19,3 +19,6 @@
 [submodule "vim/bundle/indent-obj"]
 	path = vim/bundle/indent-obj
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/tag-bar"]
+	path = vim/bundle/tag-bar
+	url = https://github.com/majutsushi/tagbar.git
