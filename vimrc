@@ -93,9 +93,6 @@ autocmd BufNewFile,BufRead *.jinja2,*.jinja2js set filetype=htmljinja
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" Toggle paste
-set pastetoggle=<F8>
-
 " Define a leader key. This is the default.
 let mapleader = "\\"
 "let maplocalleader 
