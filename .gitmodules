@@ -22,3 +22,9 @@
 [submodule "vim/bundle/tag-bar"]
 	path = vim/bundle/tag-bar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/jslint"]
+	path = vim/bundle/jslint
+	url = https://github.com/hallettj/jslint.vim.git
+[submodule "vim/bundle/pyflakes"]
+	path = vim/bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim
