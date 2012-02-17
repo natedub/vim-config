@@ -32,7 +32,7 @@ setlocal iskeyword+=$
 syntax sync fromstart
 
 "" JavaScript comments
-syntax keyword javaScriptCommentTodo    TODO FIXME XXX TBD contained
+syntax keyword javaScriptCommentTodo    TODO FIXME XXX TBD NOTE contained
 syntax region  javaScriptLineComment    start=+\/\/+ end=+$+ keepend contains=javaScriptCommentTodo,@Spell
 syntax region  javaScriptLineComment    start=+^\s*\/\/+ skip=+\n\s*\/\/+ end=+$+ keepend contains=javaScriptCommentTodo,@Spell fold
 syntax region  javaScriptCvsTag         start="\$\cid:" end="\$" oneline contained
@@ -46,9 +46,9 @@ if !exists("javascript_ignore_javaScriptdoc")
   "syntax include @javaHtml <sfile>:p:h/html.vim
   "unlet b:current_syntax
 
-  syntax region javaScriptDocComment    matchgroup=javaScriptComment start="/\*\*\s*$"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
-  syntax match  javaScriptDocTags       contained "@\(param\|return\|suppress\|define\|enum\|implements\|argument\|requires\|exception\|throws\|type\|this\|typedef\|class\|extends\|see\|link\|member\|module\|method\|title\|namespace\|optional\|default\|base\|file\)\>" nextgroup=javaScriptDocParam,javaScriptDocSeeTag skipwhite
-  syntax match  javaScriptDocTags       contained "@\(notypecheck\|beta\|deprecated\|inheritDoc\|override\|description\|fileoverview\|author\|license\|version\|constructor\|const\|preserve\|nosideeffects\|private\|protected\|final\|ignore\|addon\|exec\)\>"
+  syntax region javaScriptDocComment    matchgroup=javaScriptComment start="/\*\*\s*"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
+  syntax match  javaScriptDocTags       contained "@\(code\|param\|return\|suppress\|define\|enum\|implements\|argument\|requires\|exception\|throws\|type\|this\|typedef\|class\|extends\|see\|link\|member\|module\|method\|title\|namespace\|optional\|default\|base\|file\)\>" nextgroup=javaScriptDocParam,javaScriptDocSeeTag skipwhite
+  syntax match  javaScriptDocTags       contained "@\(interface\|notypecheck\|beta\|deprecated\|inheritDoc\|override\|description\|fileoverview\|author\|license\|version\|constructor\|const\|preserve\|nosideeffects\|private\|protected\|final\|ignore\|addon\|exec\)\>"
   syntax match  javaScriptDocParam      contained "\%(#\|\w\|\.\|:\|\/\)\+"
   syntax region javaScriptDocSeeTag     contained matchgroup=javaScriptDocSeeTag start="{" end="}" contains=javaScriptDocTags
 
